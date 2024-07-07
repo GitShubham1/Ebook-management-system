@@ -132,33 +132,41 @@ em {
 						<form action="register" method="post" id="registrationform"
 							onsubmit="return validateForm()">
 							<div class="form-group">
-								<label for="fname">Full Name</label> <input type="text"
-									class="form-control" id="fname" name="fname"> <span
-									id="fNameError" class="error"></span>
+								<label for="fname">Full Name<em>*</em></label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+									<input type="text" class="form-control" id="fname" name="fname">
+								</div>
+								<span id="fNameError" class="error"></span>
 							</div>
 							<div class="form-group">
-								<label for="email">Email address</label> <input type="email"
-									class="form-control" id="email" name="email"> <span
-									id="emailError" class="error"></span>
+								<label for="email">Email address<em>*</em></label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+									<input type="email" class="form-control" id="email"
+										name="email">
+								</div>
+								<span id="emailError" class="error"></span>
 							</div>
 							<div class="form-group">
-								<label for="phno">Phone No.</label> <input type="text"
-									class="form-control" id="phno" name="phno"> <span
-									id="phnoError" class="error"></span>
+								<label for="phno">Phone No.<em>*</em></label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-phone"></i></span>
+									<input type="text" class="form-control" id="phno" name="phno">
+								</div>
+								<span id="phnoError" class="error"></span>
 							</div>
-							<!-- <div class="form-group">
-								<label for="password">Password</label> <input type="password"
-									class="form-control" id="password" name="password"> <span
-									id="passwordError" class="error"></span>
-							</div> -->
 							<div class="form-group">
-								<label for="password">Password</label>
-								<div class="input-group">
-									<input type="password" class="form-control" id="password"
-										name="password"> <span class="input-group-append">
-										<span class="input-group-text"> <i
-											class="fa fa-eye-slash" id="togglePassword"
-											aria-hidden="true" onclick="togglePassword()"></i>
+								<label for="password">Password<em>*</em></label>
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fas fa-lock"></i>
+										</span>
+										 <input type="password" class="form-control" id="password"
+											name="password">
+									<span class="input-group-append"> <span
+										class="input-group-text"> <i class="fa fa-eye-slash"
+											id="togglePassword" aria-hidden="true"
+											onclick="togglePassword()"></i>
 									</span>
 									</span>
 								</div>

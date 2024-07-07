@@ -8,6 +8,11 @@
 <meta charset="UTF-8">
 <title>Login page</title>
 <%@ include file="components/allCSS.jsp" %>
+<style type="text/css">
+em {
+	color: red;
+}
+</style>
 </head>
 <body style="background-color:#f0f1f2;">
 <%@ include file="components/Navbar.jsp" %>
@@ -31,13 +36,14 @@
 					 
 						<form action="login" method="post">
 							<div class="form-group">
-								<label for="exampleInputEmail1" placeholder="email">Email address</label> <input
+								<label for="exampleInputEmail1" placeholder="email">Email address<em>*</em></label> 
+								<input
 									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" required="required" name="email">
+									aria-describedby="emailHelp"required="required" name="email">
 							</div>
 
 							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label> <input
+								<label for="exampleInputPassword1">Password<em>*</em></label> <input
 									type="password" class="form-control" id="exampleInputPassword1" required="required" name="password">
 							</div>
 
