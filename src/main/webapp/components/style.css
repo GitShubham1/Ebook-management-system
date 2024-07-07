@@ -1,0 +1,139 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+
+.first{
+	
+    margin-left: 10px;
+
+}
+.second{
+	margin-left:20rem;
+}
+
+.third{
+	
+    margin-left: 25rem;
+
+}
+
+.one input{
+	width: 15rem;
+    height: 2rem;
+    margin-top: 2px;
+    border-style:none;
+
+}
+.second .one .btn{
+    height: 2rem;
+    margin-left: 2px;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+
+.navbar{
+	 background-color: #303f9f;
+	
+}
+
+
+ .navdiv{
+    display:contents;
+ }
+
+.myul{
+	list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    }
+    
+    .navbar .navdiv .myul li{
+     margin-left: 3px;
+    margin-right: 16px;
+    }
+    
+    
+    .navbar .navdiv .myul li:hover a{
+    background-color:white;
+	color:#303f9f;
+	border-radius:5px ;
+    }
+    
+  .navbar .navdiv .myul li a{
+      text-decoration:none;
+      color:white;
+  }
+  
+  .mybtns{
+  display: inline-block;
+    margin-left: 76rem;
+    }
+    
+
+
+
+.mycontain{
+   width:1170px;
+   margin:auto;
+   display:flex;
+   flex-wrap:wrap;
+   justify-content:space-around;
+}
+
+.myitems{
+   flex-basis:24%;
+   margin:10px 0px;
+   text-align:center;
+   box-shadow:0px 0px 10px 3px lightgrey;
+   background:white;
+   padding:10px 0px;
+   
+ }
+ 
+ .myitems:hover{
+    background:#303f9f;
+    
+ }
+ 
+ .myitems:hover p{
+  color:white;
+ }
+ 
+ .myitems:hover a{
+    background-color:white;
+	color:#303f9f;
+ }
+ 
+ .myitems p{
+  padding:5px 0px;
+ }
+ 
+ .mybtns{
+ margin-right: 2rem;
+ margin-left: 46rem;
+ justify-content: space-around;
+ }
+ 
+  .myitems img{
+  width:170px;
+  height:200px;
+  }
+  
+  .container{
+     text-align: center; 
+     padding: 25px 0px;
+  }
+
+.footer{
+	 background-color:#303f9f;
+    color: white;
+    text-align: center;
+    height: 80px;
+    padding:10px;
+    position:relative;
+    margin-top:1rem;
+}
+
+
