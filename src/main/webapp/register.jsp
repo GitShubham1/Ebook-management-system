@@ -80,6 +80,10 @@ em {
 		} else if (password.length < 8) {
 			document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
 			isValid = false;
+		} else if (!isStrongPassword(password)) {
+			document.getElementById('passwordError').textContent = 'Password must be strong: include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+			isValid = false;
+
 		} else {
 			document.getElementById('passwordError').textContent = '';
 		}
@@ -105,6 +109,12 @@ em {
 		// Basic phone number validation using regex (digits only)
 		var phoneRegex = /^\d+$/;
 		return phoneRegex.test(phno);
+	}
+
+	function isStrongPassword(password) {
+		// Regex to enforce at least one uppercase letter, one lowercase letter, one number, and one special character
+		var strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+		return strongPasswordRegex.test(password);
 	}
 </script>
 </head>
@@ -158,15 +168,13 @@ em {
 							</div>
 							<div class="form-group">
 								<label for="password">Password<em>*</em></label>
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fas fa-lock"></i>
-										</span>
-										 <input type="password" class="form-control" id="password"
-											name="password">
-									<span class="input-group-append"> <span
-										class="input-group-text"> <i class="fa fa-eye-slash"
-											id="togglePassword" aria-hidden="true"
-											onclick="togglePassword()"></i>
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i class="fas fa-lock"></i>
+									</span> <input type="password" class="form-control" id="password"
+										name="password"> <span class="input-group-append">
+										<span class="input-group-text"> <i
+											class="fa fa-eye-slash" id="togglePassword"
+											aria-hidden="true" onclick="togglePassword()"></i>
 									</span>
 									</span>
 								</div>

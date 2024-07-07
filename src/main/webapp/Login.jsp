@@ -12,7 +12,52 @@
 em {
 	color: red;
 }
+.error {
+	color: red;
+	font-size: 12px;
+}
 </style>
+<script>
+function togglePassword() {
+	var passwordField = document.getElementById('password');
+	var toggleIcon = document.getElementById('togglePassword');
+
+	if (passwordField.type === 'password') {
+		passwordField.type = 'text';
+		toggleIcon.classList.remove('fa-eye-slash');
+		toggleIcon.classList.add('fa-eye');
+	} else {
+		passwordField.type = 'password';
+		toggleIcon.classList.remove('fa-eye');
+		toggleIcon.classList.add('fa-eye-slash');
+	}
+}
+
+function validateForm(){
+	var email = document.getElementById('email').value.trim();
+	var password = document.getElementById('password').value.trim();
+	
+	var isValid = true;
+	
+	//Validate Email
+	if(email===''){
+		document.getElementById('emailError').textContent = 'Please enter your email address.';
+		isValid=false;
+	}else{
+		document.getElementById('emailError').textContent = '';
+	}
+	
+	//Validate Password
+	if(password===''){
+		document.getElementById('passwordError').textContent = 'Please enter a password.';
+		isValid=false;
+	}else{
+		document.getElementById('passwordError').textContent = '';
+	}
+  return isValid;	
+}
+
+</script>
 </head>
 <body style="background-color:#f0f1f2;">
 <%@ include file="components/Navbar.jsp" %>
@@ -34,17 +79,37 @@ em {
 					
 					 
 					 
-						<form action="login" method="post">
+						<form action="login" method="post" onsubmit="return validateForm()">
 							<div class="form-group">
-								<label for="exampleInputEmail1" placeholder="email">Email address<em>*</em></label> 
+								<label for="exampleInputEmail1" placeholder="email">Email address<em>*</em></label>
+								<div class="input-group-prepend"> 
+								<span class="input-group-text"><i class="fa fa-user"></i></span>
 								<input
-									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp"required="required" name="email">
+									type="email" class="form-control" id="email"
+									aria-describedby="emailHelp" name="email">
+								</div>
+								<span id="emailError" class="error"></span>
 							</div>
 
 							<div class="form-group">
-								<label for="exampleInputPassword1">Password<em>*</em></label> <input
-									type="password" class="form-control" id="exampleInputPassword1" required="required" name="password">
+							<label for="exampleInputPassword1">Password<em>*</em></label>
+							    <div class="input-group-prepend">
+							      <span class="input-group-text"> <i class="fas fa-lock"></i>
+								  </span>
+							      
+								 <input
+									type="password" class="form-control" id="password" name="password">
+								
+								<span class="input-group-append">
+									 <span
+										class="input-group-text"> <i class="fa fa-eye-slash"
+											id="togglePassword" aria-hidden="true"
+											onclick="togglePassword()"></i>
+									</span>
+									</span>
+									
+								</div>
+								<span id="passwordError" class="error"></span>
 							</div>
 
 							
