@@ -105,11 +105,24 @@ em {
 		return emailRegex.test(email);
 	}
 
-	function isValidPhone(phno) {
+	/* function isValidPhone(phno) {
 		// Basic phone number validation using regex (digits only)
 		var phoneRegex = /^\d+$/;
 		return phoneRegex.test(phno);
-	}
+	} */
+	
+	 function isValidPhone(phno){
+		   // Check if the first 4 digits are between 6 and 9
+		   var firstFourDigits = phno.substring(0, 4);
+		   if (!/^[6-9]\d{3}$/.test(firstFourDigits)) {
+		       return false;
+		   }
+		   
+		   // Check if the entire phone number consists of digits and is 10 digits long
+		   var phoneRegex = /^\d{10}$/;
+		   return phoneRegex.test(phno);
+		}
+
 
 	function isStrongPassword(password) {
 		// Regex to enforce at least one uppercase letter, one lowercase letter, one number, and one special character
