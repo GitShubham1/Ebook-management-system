@@ -12,6 +12,32 @@
 <meta charset="UTF-8">
 <title>Admin: All Books</title>
 <%@ include file="allCSS.jsp"%>
+<script type="text/javascript">
+ //function to clear success and error message after a delay
+	
+	function clearMessage(){
+		var succMsgElement = document.getElementById('textSuccMsg');
+		var errMsgElement = document.getElementById('textdangerMsg');
+		
+		if(succMsgElement){
+			setTimeout(function(){
+			   	succMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+		
+		if(errMsgElement){
+			setTimeout(function(){
+				errMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+	}
+	
+	//call clearMessages function when the page loads
+	window.onload = function(){
+		clearMessage();
+	};
+</script>
+
 </head>
 <body>
 	<%@ include file="Navbar.jsp"%>
@@ -20,12 +46,12 @@
     </c:if>
 	<h3 class="text-center">Hello Admin</h3>
 	                    <c:if test="${not empty successmsg }">
-							<h5 class="text-center text-success">${successmsg}</h5>
+							<h5 class="text-center text-success" id="textSuccMsg">${successmsg}</h5>
 							<c:remove var="successmsg" scope="session" />
 						</c:if>
 						
 						<c:if test="${not empty errMsg}">
-							<h5 class="text-center text-danger">${errMsg}</h5>
+							<h5 class="text-center text-danger" id="textdangerMsg">${errMsg}</h5>
 							<c:remove var="errMsg" scope="session" />
 						</c:if>
 	<table class="my table">

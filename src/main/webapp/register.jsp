@@ -129,6 +129,30 @@ em {
 		var strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 		return strongPasswordRegex.test(password);
 	}
+	
+  //function to clear success and error message after a delay
+	
+	function clearMessage(){
+		var succMsgElement = document.getElementById('textSuccMsg');
+		var errMsgElement = document.getElementById('textdangerMsg');
+		
+		if(succMsgElement){
+			setTimeout(function(){
+			   	succMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+		
+		if(errMsgElement){
+			setTimeout(function(){
+				errMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+	}
+	
+	//call clearMessages function when the page loads
+	window.onload = function(){
+		clearMessage();
+	}; 
 </script>
 </head>
 <body style="background-color: #f0f1f2;">
@@ -143,12 +167,12 @@ em {
 						<h4 class="text-center">Registration Form</h4>
 
 						<c:if test="${not empty successmsg }">
-							<p class="text-center text-success">${successmsg}</p>
+							<p class="text-center text-success " id="textSuccMsg">${successmsg}</p>
 							<c:remove var="successmsg" />
 						</c:if>
 
 						<c:if test="${not empty errmsg }">
-							<p class="text-center text-danger">${errmsg}</p>
+							<p class="text-center text-danger" id="textdangerMsg">${errmsg}</p>
 							<c:remove var="errmsg" />
 						</c:if>
 

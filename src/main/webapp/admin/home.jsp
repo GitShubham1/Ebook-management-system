@@ -41,17 +41,7 @@ a:hover {
 	<c:if test="${empty userobj}">
 	  <c:redirect url="../Login.jsp"/>
 	</c:if>
-	<%--  <div class="container">
-      <div class="row">
-          <div class="col-md-3">
-             <div class="card">
-               <div class="card-body text-center">
-               <h4>Add Books</h4>
-               </div>
-             </div>
-          </div>
-      </div>
-   </div>--%>
+	
 	<div class="container">
 		<div class="mycontain">
 			<a href="add_books.jsp">
@@ -60,19 +50,22 @@ a:hover {
 					<h4>Add Books</h4>
 					----------------
 				</div>
-			</a> <a href="all_books.jsp">
+			</a> 
+			<a href="all_books.jsp">
 				<div class="myitems">
 					<i class="fas fa-book-open fa-3x text-danger"></i><br>
 					<h4>All Books</h4>
 					----------------
 				</div>
-			</a> <a href="order_books.jsp">
+			</a> 
+			<a href="order_books.jsp">
 				<div class="myitems">
 					<i class="fas fa-box-open fa-3x text-warning"></i><br>
 					<h4>Orders</h4>
 					----------------
 				</div>
-			</a> <a data-toggle="modal" data-target="#exampleModalCenter">
+			</a> 
+			<a data-toggle="modal" data-target="#exampleModalCenter">
 				<div class="myitems">
 					<i class="fas fa-sign-out-alt fa-3x text-primary"></i><br>
 					<h4>Logout</h4>

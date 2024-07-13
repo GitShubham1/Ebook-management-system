@@ -8,6 +8,31 @@
 <meta charset="UTF-8">
 <title>Admin: Add_Books</title>
 <%@ include file="allCSS.jsp"%>
+ <script type="text/javascript">
+ //function to clear success and error message after a delay
+	
+	function clearMessage(){
+		var succMsgElement = document.getElementById('textSuccMsg');
+		var errMsgElement = document.getElementById('textdangerMsg');
+		
+		if(succMsgElement){
+			setTimeout(function(){
+			   	succMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+		
+		if(errMsgElement){
+			setTimeout(function(){
+				errMsgElement.textContent='';
+			},2000); //2000 milisecond = 2 second
+		}
+	}
+	
+	//call clearMessages function when the page loads
+	window.onload = function(){
+		clearMessage();
+	};
+</script>
 </head>
 <body style="background-color: #f0f1f2;">
 	<%@ include file="Navbar.jsp"%>
@@ -20,11 +45,11 @@
 				<div class="card">
 					<div class="card-body">
 					    <c:if test="${not empty successmsg }">
-					     <p class="text-center text-success">${successmsg}</p>
+					     <p class="text-center text-success" id="textSuccMsg">${successmsg}</p>
 					     <c:remove var="successmsg" scope="session"/>
 					    </c:if>
 					    <c:if test="${not empty errMsg}">
-					       <p class="text-center text-danger">${errMsg}</p>
+					       <p class="text-center text-danger" id="textdangerMsg">${errMsg}</p>
 					       <c:remove var="errMsg" scope="session"/>
 					    </c:if>
 						<h4 class="text-center">Add Books</h4>

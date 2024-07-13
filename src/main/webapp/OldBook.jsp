@@ -13,12 +13,33 @@
 <meta charset="UTF-8">
 <title>User: Old Book</title>
 <%@ include file="components/allCSS.jsp" %>
+<script type="text/javascript">
+//function to clear success and error message after a delay
+
+function clearMessage(){
+	var succMsgElement = document.getElementById('textSuccMsg');
+	
+	
+	if(succMsgElement){
+		setTimeout(function(){
+		   	succMsgElement.textContent='';
+		},2000); //2000 milisecond = 2 second
+	}
+	
+	
+}
+
+//call clearMessages function when the page loads
+window.onload = function(){
+	clearMessage();
+};
+</script>
 </head>
 <body>
 <%@ include file="components/Navbar.jsp"%>
 
 <c:if test="${not empty successMsg }">
-    <p class="text-center text-success">${successMsg}</p>
+    <p class="text-center text-success" id="textSuccMsg">${successMsg}</p>
     <c:remove var="successMsg" scope="session"/>
 </c:if>
 <div class="container p-5">

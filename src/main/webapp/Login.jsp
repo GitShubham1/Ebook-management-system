@@ -57,6 +57,29 @@ function validateForm(){
   return isValid;	
 }
 
+//function to clear success and error message after a delay
+
+function clearMessage(){
+	var succMsgElement = document.getElementById('textSuccMsg');
+	var errMsgElement = document.getElementById('textdangerMsg');
+	
+	if(succMsgElement){
+		setTimeout(function(){
+		   	succMsgElement.textContent='';
+		},2000); //2000 milisecond = 2 second
+	}
+	
+	if(errMsgElement){
+		setTimeout(function(){
+			errMsgElement.textContent='';
+		},2000); //2000 milisecond = 2 second
+	}
+}
+
+//call clearMessages function when the page loads
+window.onload = function(){
+	clearMessage();
+};
 </script>
 </head>
 <body style="background-color:#f0f1f2;">
@@ -67,12 +90,12 @@ function validateForm(){
 				<div class="card">
 					<div class="card-body">
 					 <c:if test="${not empty successMsg }">
-					   <h5 class="text-center text-success">${successMsg}</h5>
+					   <h5 class="text-center text-success" id="textSuccMsg" >${successMsg}</h5>
 					   <c:remove var="successMsg"/>
 					 </c:if>
 					 <h4 class="text-center">Login Form</h4>
 					 <c:if test="${ not empty errmsg}">
-					   <h5 class="text-center text-danger">${errmsg}</h5>
+					   <h5 class="text-center text-danger" id="textdangerMsg" >${errmsg}</h5>
 					   <c:remove var="errmsg" />
 					 </c:if>
 					 

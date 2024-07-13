@@ -9,7 +9,31 @@
 <meta charset="UTF-8">
 <title>Edit Profile Page</title>
 <%@ include file="components/allCSS.jsp"%>
-</head>
+<!-- <script type="text/javascript">
+function clearMessage(){
+	var succMsgElement = document.querySelector('.text-success');
+	var errMsgElement = document.querySelector('.text-danger');
+	
+	if(succMsgElement){
+		setTimeout(function(){
+		   	succMsgElement.textContent='';
+		},2000); //2000 milisecond = 2 second
+	}
+	
+	if(errMsgElement){
+		setTimeout(function(){
+			errMsgElement.textContent='';
+		},2000); //2000 milisecond = 2 second
+	}
+}
+
+//call clearMessages function when the page loads
+window.onload = function(){
+	clearMessage();
+};
+</script>
+ -->
+ </head>
 <body style="background-color:#f0f1f2;">
 <%@ include file="components/Navbar.jsp"%>
 <div class="container">
