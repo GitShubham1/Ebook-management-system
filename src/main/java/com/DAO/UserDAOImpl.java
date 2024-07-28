@@ -128,6 +128,64 @@ public boolean checkUser(String email) {
 	return f;
 }
 
+@Override
+public User getCurrentPassword(String email) {
+	User us =null;
+	String sql = "select * from users where email=?";
+	try (PreparedStatement ps = conn.prepareStatement(sql)){
+		ps.setString(1, email);
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next()) {
+			us = new User();
+			us.setEmail(rs.getString("email"));
+			us.setPassword(rs.getString("password"));
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return us;
+}
+
+@Override
+public boolean updatePassword(User u) {
+	boolean f=false;
+	try {
+		String sql="update users set password=? where email=?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, u.getPassword());
+		ps.setString(2, u.getEmail());
+		int i=ps.executeUpdate();
+		if(i==1) {
+			f=true;
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	return f;
+}
+
+@Override
+public boolean checkEmail(String email) {
+	boolean f=false;
+	try {
+		String sql="select * from users where email=?";
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setString(1, email);
+		  try(ResultSet rs=ps.executeQuery()){
+		     f=rs.isBeforeFirst();	 
+		 
+		  };
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return f;
+}
+
+
+
 }
 
 

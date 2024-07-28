@@ -66,7 +66,7 @@
             <a href="setting.jsp">
               <button type="button" class="btn"><i class="fa-solid fa-gear"></i>setting</button>
             </a>
-            <a>
+            <a href="helpline.jsp">
                <button type="button" class="btn"><i class="fa-solid fa-phone"></i>contact us</button>
             </a>
           </div>

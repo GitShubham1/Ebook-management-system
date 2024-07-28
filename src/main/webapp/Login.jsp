@@ -133,6 +133,7 @@ window.onload = function(){
 									
 								</div>
 								<span id="passwordError" class="error"></span>
+								<a href="verifyUser.jsp">forgot password</a>
 							</div>
 
 							
